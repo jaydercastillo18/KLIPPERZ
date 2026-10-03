@@ -1,0 +1,6 @@
+import Image from "next/image";
+import { team } from "@/data/team";
+import { content } from "@/data/content";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { BookingLink } from "@/components/ui/BookingLink";
+export function Team() { return <section id="equipo" className="section team-section"><div className="container reveal"><SectionHeading number="05" label="EL FACTOR HUMANO" title={content.team.title}><p>{content.team.intro}</p><span className="tiny-note">EQUIPO DE DEMOSTRACIÓN</span></SectionHeading><div className="team-grid">{team.map(member => <article className="team-card" key={member.id}><div className="team-image"><Image src={member.image} alt={`${member.name}, retrato ficticio de demostración`} fill sizes="(max-width: 600px) 50vw, 25vw"/>{member.demo && <span className="demo-chip">PERFIL DEMO</span>}</div><div className="team-card-copy"><h3>{member.name}</h3><p>{member.specialty}</p><BookingLink href={member.bookingUrl} className="team-book" label={member.bookingUrl ? `Reservar con ${member.name} en Fresha` : "Elegir un profesional real en Fresha"}>Reservar</BookingLink></div></article>)}</div><p className="section-footnote">{content.team.note}</p></div></section>; }

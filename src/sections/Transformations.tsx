@@ -1,0 +1,6 @@
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { transformations } from "@/data/gallery";
+import { content } from "@/data/content";
+import { BeforeAfter } from "@/components/ui/BeforeAfter";
+export function Transformations() { return <section className="transformations section"><div className="container reveal"><div className="transformation-layout"><div className="transformation-copy"><p className="eyebrow"><span className="accent">02</span><span className="eyebrow-line"/>THE DIFFERENCE</p><h2>{content.transformations.title}</h2><p>{content.transformations.description}</p><a className="text-link" href="#trabajos">Encuentra tu inspiración <ArrowUpRight size={18}/></a><div className="transformation-detail"><Image src="/images/cut-03.webp" alt="Detalle conceptual de un degradado" width={150} height={180}/><span>UN NUEVO LOOK.<br/><strong>LA MISMA ESENCIA.</strong></span></div></div><div className="transformation-scroller">{transformations.map(item => <article className="transformation-card" key={item.id}><BeforeAfter {...item}/><div className="comparison-caption"><h3>{item.title}</h3><span>{item.subtitle}</span></div></article>)}</div></div><p className="section-footnote">{content.transformations.notice}</p></div></section>; }
